@@ -1,0 +1,14 @@
+<h1>Heyo</h1>
+<div class = "row">
+	<% @ricks.each do |rick| %>
+	<p>  These are this Rick's Eyeballs <%= link_to rick.eyeballs, "ricks/#{rick.id}" %> and ID <%= rick.id %></p> 
+	<% end %>
+	<% if @message %>
+		<p>Also <%= @message %></p>  
+	<% end %>
+	<% if @params %>
+	<p>Wildcard = <%= @params %></p>
+	<% end %>
+
+
+</div>

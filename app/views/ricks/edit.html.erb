@@ -1,0 +1,9 @@
+<h1>Edit</h1>
+
+<%= form_tag("/ricks/#{@rick.id}", method: "patch") do %>
+  
+  <%= label_tag(:eyeballs, "Eyeballs") %>:
+  <%= text_field_tag(:eyeballs)%><br />
+
+  <%= submit_tag("Edit the Rick!") %>
+<% end %>

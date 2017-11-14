@@ -1,0 +1,10 @@
+<h1>New</h1>
+<% rick = Rick.new %>
+
+<%= form_tag("/ricks", method: "post") do %>
+  
+  <%= label_tag(:eyeballs, "Eyeballs") %>:
+  <%= text_field_tag(:eyeballs) %><br />
+
+  <%= submit_tag("Submit the new Rick!") %>
+<% end %>
