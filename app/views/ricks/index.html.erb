@@ -1,7 +1,11 @@
 <h1>Heyo</h1>
-<div class = "row">
 	<% @ricks.each do |rick| %>
-	<p>  These are this Rick's Eyeballs <%= link_to rick.eyeballs, "ricks/#{rick.id}" %> and ID <%= rick.id %></p> 
+		<div class="rick col-md-3">
+	<p>These are this Rick's Eyeballs <br>
+		<%= image_tag "#{rick.image}", :size => "100x100"%>
+		<hr>
+	<%= link_to rick.eyeball_id, "ricks/#{rick.id}" %></p> 
+	</div>
 	<% end %>
 	<% if @message %>
 		<p>Also <%= @message %></p>  
@@ -11,4 +15,3 @@
 	<% end %>
 
 
-</div>

@@ -10,8 +10,10 @@ class RicksController < ApplicationController
 
 	def create
 		eyeballs = params[:eyeballs]
-		rick = Rick.create(eyeballs: eyeballs)
+		image = params[:image]
+		rick = Rick.create(eyeballs: eyeballs, image: image)
 		redirect_to "/ricks/#{rick.id}"
+		flash[:success] = "Rick Created"
 	end
 
 	def show
@@ -23,7 +25,8 @@ class RicksController < ApplicationController
 	def update
 		rick = Rick.find_by(id: (params[:id]))
 		eyeballs = params[:eyeballs]
-		rick.update(eyeballs: eyeballs)
+		image = params[:image]
+		rick.update(eyeballs: eyeballs, image: image)
 		redirect_to "/ricks/#{rick.id}"
 		flash[:success] = "Rick Updated"
 
