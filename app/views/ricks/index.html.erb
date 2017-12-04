@@ -1,17 +1,15 @@
 <h1>Heyo</h1>
+
 	<% @ricks.each do |rick| %>
 		<div class="rick col-md-3">
 	<p>These are this Rick's Eyeballs <br>
 		<%= image_tag "#{rick.image}", :size => "100x100"%>
 		<hr>
-	<%= link_to rick.eyeball_id, "ricks/#{rick.id}" %></p> 
+	Eyeballs: <%= link_to "#{rick.eyeballs}", "/ricks/#{rick.id}" %></p> 
+	Description: <%= rick.description %>
 	</div>
 	<% end %>
-	<% if @message %>
-		<p>Also <%= @message %></p>  
-	<% end %>
-	<% if @params %>
-	<p>Wildcard = <%= @params %></p>
-	<% end %>
+
+
 
 

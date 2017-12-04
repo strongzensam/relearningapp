@@ -1,0 +1,2 @@
+module MortysHelper
+end

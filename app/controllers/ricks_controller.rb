@@ -1,8 +1,10 @@
 class RicksController < ApplicationController
 	def index
-		@message = params[:message]
-		@ricks = Rick.all
-		@params = params[:wildcard]
+		if params[:view] == "order"
+			@ricks = Rick.order(:eyeballs)
+		else
+			@ricks = Rick.all.shuffle	
+		end
 	end
 
 	def new
@@ -11,7 +13,7 @@ class RicksController < ApplicationController
 	def create
 		eyeballs = params[:eyeballs]
 		image = params[:image]
-		rick = Rick.create(eyeballs: eyeballs, image: image)
+		rick = Rick.create(eyeballs: eyeballs, image: image, description: description)
 		redirect_to "/ricks/#{rick.id}"
 		flash[:success] = "Rick Created"
 	end
@@ -26,7 +28,8 @@ class RicksController < ApplicationController
 		rick = Rick.find_by(id: (params[:id]))
 		eyeballs = params[:eyeballs]
 		image = params[:image]
-		rick.update(eyeballs: eyeballs, image: image)
+		description = params[:description]
+		rick.update(eyeballs: eyeballs, image: image, description: description)
 		redirect_to "/ricks/#{rick.id}"
 		flash[:success] = "Rick Updated"
 
@@ -36,5 +39,9 @@ class RicksController < ApplicationController
 		rick.destroy
 		redirect_to "/ricks"
 
+	end
+	def search
+		@ricks = Rick.where("eyeballs LIKE ?", "description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%")
+		render :index
 	end
 end

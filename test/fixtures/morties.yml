@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eyeballs: MyString
+  image: MyString
+
+two:
+  eyeballs: MyString
+  image: MyString
