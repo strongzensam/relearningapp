@@ -3,11 +3,11 @@
 <%= form_tag("/ricks/#{@rick.id}", method: "patch") do %>
   
   <%= label_tag(:eyeballs, "Eyeballs") %>:
-  <%= text_field_tag(:eyeballs)%><br />
+  <%= text_field_tag(:eyeballs, @rick.eyeballs) %><br />
    <%= label_tag(:image, "Image URL") %>:
-  <%= text_field_tag(:image) %><br />
+  <%= text_field_tag(:image, @rick.image) %><br />
  <%= label_tag(:description, "Description") %>:
-  <%= text_field_tag(:description) %><br />
+  <%= text_field_tag(:description, @rick.description) %><br />
   
   <%= submit_tag("Edit the Rick!") %>
 <% end %>
