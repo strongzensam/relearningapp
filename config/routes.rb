@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	get '/ricks/:order', to: 'ricks#index'
 	get '/about', to: 'pages#about'
 	post '/ricks', to: 'ricks#create'
-	post '/ricks/:search', to: 'ricks#search'
+	post '/ricks/search', to: 'ricks#search'
 	get '/ricks/:id/edit', to: 'ricks#edit'
 	patch '/ricks/:id', to: 'ricks#update'
 	delete '/ricks/:id', to: 'ricks#destroy'

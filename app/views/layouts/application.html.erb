@@ -23,15 +23,15 @@
       <li class="nav-item">
         <a class="nav-link" href="/ricks/new">New Rick</a>
       </li>
-      <li>
-        <a><%=  link_to "Show Ricks in alphabetical order", "/ricks/?view=order" %></a>
+      <li class="nav-item">
+            <a><%=  link_to "Show Ricks in alphabetical order", "/ricks/?view=order" %></a>
       </li>
-      <li>
-        <a><%=  link_to "Show Ricks in non alphabetical order", "/ricks" %></a>
+      <li class="nav-item">
+        <a><%=  link_to "Show Ricks in random order", "/ricks/?view=shuffle" %></a>
       </li>
     </ul>
   </div>
-        <%= form_tag("/ricks/:search", method: "post") do %>
+        <%= form_tag("/ricks/search", method: "post") do %>
          <%= label_tag(:search, "Search") %>:
           <%= text_field_tag(:search) %>
             <%= submit_tag("Search") %>

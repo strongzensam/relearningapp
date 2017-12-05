@@ -2,8 +2,10 @@ class RicksController < ApplicationController
 	def index
 		if params[:view] == "order"
 			@ricks = Rick.order(:eyeballs)
-		else
+		elsif params[:view] == "shuffle"
 			@ricks = Rick.all.shuffle	
+		else
+			@ricks = Rick.all
 		end
 	end
 
@@ -41,7 +43,8 @@ class RicksController < ApplicationController
 
 	end
 	def search
-		@ricks = Rick.where("eyeballs LIKE ?", "description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%")
+		search_term = params[:search]
+		@ricks = Rick.where("eyeballs LIKE ? OR description LIKE ?", "%#{search_term}%", "%#{search_term}%")
 		render :index
 	end
 end
