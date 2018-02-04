@@ -4,7 +4,11 @@ class HelloWorld extends React.Component {
   render () {
     return (
       <div>
-        <div>Greeting: {this.props.greeting}</div>
+        <div>
+        <h4>
+        Greeting: {this.props.greeting}
+        </h4>
+        </div>
       </div>
     );
   }
